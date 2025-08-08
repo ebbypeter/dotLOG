@@ -1,0 +1,3 @@
+This is a regular text file
+It does not start with .LOG
+So it should not be processed

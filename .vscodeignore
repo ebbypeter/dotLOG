@@ -1,0 +1,38 @@
+# Development files
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+.yarnrc
+vsc-extension-quickstart.md
+**/tsconfig.json
+**/.eslintrc.json
+**/*.map
+**/*.ts
+
+# Spec and documentation (keep only essential docs)
+.kiro/**
+docs/**
+CONTRIBUTING.md
+infra/**
+
+# Dependencies and build artifacts
+node_modules/**
+*.vsix
+out/test/**
+out/handlers/**
+out/services/**
+out/types/**
+
+# Development scripts and configs
+.eslintrc.json
+tsconfig.json
+package-lock.json
+build.js
+
+# Keep only essential files:
+# - out/extension.js (bundled extension)
+# - package.json (extension manifest)
+# - README.md (user documentation)
+# - CHANGELOG.md (version history)
+# - LICENSE (legal)
