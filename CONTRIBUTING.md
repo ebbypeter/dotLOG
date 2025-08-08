@@ -101,8 +101,6 @@ dotLOG/
 │       └── runTest.ts          # Test runner
 ├── out/                         # Compiled JavaScript
 ├── docs/                        # Documentation
-├── .kiro/                       # Kiro specs and configuration
-│   └── specs/dotLOG/
 ├── package.json                 # Extension manifest
 ├── tsconfig.json               # TypeScript configuration
 ├── .eslintrc.json              # ESLint configuration
