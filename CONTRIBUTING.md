@@ -346,21 +346,56 @@ export class ContentAnalyzer implements IContentAnalyzer {
 
 ### Commit Message Format
 
-Use conventional commit format:
+Use a developer-focused commit format that clearly describes what was built:
 
+```text
+Brief summary: what was implemented/changed
+
+Detailed description of the implementation including:
+- Core functionality added/modified
+- Architecture changes or new components
+- Technical details relevant to other developers
+
+Additional context:
+- Build/test changes
+- Dependencies added/removed
+- Performance considerations
 ```
-type(scope): description
 
-[optional body]
+**Examples:**
 
-[optional footer]
+```text
+feat: configure esbuild bundling and optimize extension packaging
+
+- Add esbuild for fast extension bundling with minification
+- Create comprehensive npm scripts for dev/prod builds and packaging
+- Optimize .vscodeignore to exclude dev files from VSIX package
+- Add custom build.js script with size reporting and watch mode
+- Reduce package size from ~31KB to ~12KB through bundling
+- Maintain test compatibility with separate compilation pipeline
+
+Implements task 12: Set up build and packaging configuration
+Requirements: 5.1, 5.2
 ```
 
-Examples:
+```text
+fix: handle timezone edge cases in timestamp generation
 
-- `feat(handlers): add support for .yaml files`
-- `fix(timestamp): handle timezone edge cases`
-- `docs(readme): update installation instructions`
+- Update TimestampService to use UTC for consistent timestamps
+- Add timezone offset handling for local time display
+- Fix edge case where midnight timestamps showed incorrect date
+- Add unit tests for timezone boundary conditions
+
+Fixes issue with timestamps showing wrong date near midnight
+```
+
+**Guidelines:**
+
+- Start with action verb (feat, fix, refactor, docs, test, etc.)
+- Focus on what was built, not marketing features
+- Use technical terms developers would understand
+- Include architecture/implementation details in body
+- Reference tasks, issues, or requirements when applicable
 
 ## Release Process
 
