@@ -2,7 +2,7 @@
   "name": "dotlog",
   "displayName": "dotLOG",
   "description": "Automatically append timestamps to files starting with .LOG, replicating Windows Notepad's .LOG functionality",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "cloudfractal",
   "repository": "https://github.com/ebbypeter/dotLOG",
   "engines": {
