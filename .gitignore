@@ -599,7 +599,7 @@ prompts/
 llm-context.md
 
 # Kiro
-kiro
+.kiro
 
 # Misc AI assistant ignore patterns
 .aiignore

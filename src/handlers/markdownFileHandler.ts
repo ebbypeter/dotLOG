@@ -32,7 +32,7 @@ export class MarkdownFileHandler extends BaseFileHandler {
   /**
    * Formats the timestamp for markdown files
    * Adds the timestamp as a heading 2 (##) on a new line with a trailing newline for user input
-   * @param timestamp The raw timestamp string in "YYYY-MM-DD HH:MM" format
+   * @param timestamp The raw timestamp string in "YYYY-MM-DD HH:MM AM/PM" format
    * @returns The formatted timestamp as markdown heading with newlines
    */
   public formatTimestamp(timestamp: string): string {

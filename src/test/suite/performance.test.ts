@@ -107,7 +107,7 @@ suite('Performance Tests', () => {
       // Verify timestamp was added (confirms processing completed)
       const content = document.getText();
       const lines = content.split('\n');
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const hasTimestamp = lines.some(line => timestampRegex.test(line));
 
       assert.strictEqual(hasTimestamp, true, 'Timestamp should be added');
@@ -140,7 +140,7 @@ suite('Performance Tests', () => {
       // Verify processing completed
       const finalContent = document.getText();
       const lines = finalContent.split('\n');
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const hasTimestamp = lines.some(line => timestampRegex.test(line));
 
       assert.strictEqual(hasTimestamp, true, 'Timestamp should be added');
@@ -171,7 +171,7 @@ suite('Performance Tests', () => {
       // Verify processing completed
       const finalContent = document.getText();
       const lines = finalContent.split('\n');
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const hasTimestamp = lines.some(line => timestampRegex.test(line));
 
       assert.strictEqual(hasTimestamp, true, 'Timestamp should be added');
@@ -247,7 +247,7 @@ suite('Performance Tests', () => {
       for (const document of documents) {
         const content = document.getText();
         const lines = content.split('\n');
-        const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+        const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
         const hasTimestamp = lines.some(line => timestampRegex.test(line));
 
         assert.strictEqual(hasTimestamp, true, `File ${document.fileName} should have timestamp`);
@@ -299,8 +299,8 @@ suite('Performance Tests', () => {
       const totalTimeMs = Number(endTime - startTime) / 1_000_000;
 
       // Verify correct processing
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
-      const markdownTimestampRegex = /^## \d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
+      const markdownTimestampRegex = /^## \d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
 
       // Check .txt file
       let content = documents[0].getText();
@@ -388,7 +388,7 @@ suite('Performance Tests', () => {
 
         // Verify processing
         const content = document.getText();
-        const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+        const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
         assert.strictEqual(content.split('\n').some(line => timestampRegex.test(line)), true, `File ${i} should be processed`);
 
         await vscode.commands.executeCommand('workbench.action.closeActiveEditor');

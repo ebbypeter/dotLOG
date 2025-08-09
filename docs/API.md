@@ -59,7 +59,7 @@ Interface for timestamp generation service.
 interface ITimestampService {
   /**
    * Generates a timestamp string in the standard format
-   * @returns Formatted timestamp string (YYYY-MM-DD HH:MM)
+   * @returns Formatted timestamp string (YYYY-MM-DD HH:MM AM/PM)
    */
   generateTimestamp(): string;
 
@@ -140,7 +140,7 @@ constructor()
 public generateTimestamp(): string
 ```
 
-**Returns:** Current timestamp in "YYYY-MM-DD HH:MM" format
+**Returns:** Current timestamp in "YYYY-MM-DD HH:MM AM/PM" format
 
 **Example:**
 

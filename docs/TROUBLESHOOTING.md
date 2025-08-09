@@ -297,7 +297,7 @@ This is a test file
 ### Current Limitations
 
 1. **File Types**: Only supports .txt, .log, and .md files
-2. **Timestamp Format**: Fixed "YYYY-MM-DD HH:MM" format
+2. **Timestamp Format**: Fixed "YYYY-MM-DD HH:MM AM/PM" format
 3. **Timezone**: Uses local system time only
 4. **Trigger**: Only processes files on open, not on save
 5. **Case Sensitivity**: ".LOG" must be exact (all caps)

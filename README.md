@@ -49,7 +49,7 @@ Then press F5 to launch a new Extension Development Host window.
 2. Type `.LOG` as the very first line of the file (case-sensitive, all caps)
 3. Save the file
 4. Close and reopen the file
-5. The extension will automatically append a timestamp in "YYYY-MM-DD HH:MM" format
+5. The extension will automatically append a timestamp in "YYYY-MM-DD HH:MM AM/PM" format
 6. Your cursor will be positioned after the timestamp for immediate typing
 
 ### Example
@@ -163,3 +163,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 Inspired by the classic Windows Notepad .LOG functionality that has helped users maintain simple chronological logs for decades.
+All the documentation and tests are generated using a combination of Github Copilot and Kiro IDE

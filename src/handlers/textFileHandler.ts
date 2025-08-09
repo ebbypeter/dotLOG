@@ -32,7 +32,7 @@ export class TextFileHandler extends BaseFileHandler {
   /**
    * Formats the timestamp for plain text files
    * Adds the timestamp on a new line with a trailing newline for user input
-   * @param timestamp The raw timestamp string in "YYYY-MM-DD HH:MM" format
+   * @param timestamp The raw timestamp string in "YYYY-MM-DD HH:MM AM/PM" format
    * @returns The formatted timestamp with newlines
    */
   public formatTimestamp(timestamp: string): string {

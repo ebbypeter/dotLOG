@@ -109,7 +109,7 @@ suite('End-to-End Workflow Tests', () => {
       assert.strictEqual(document.fileName.endsWith('.txt'), true, 'File type should be detected as .txt');
 
       // Verify timestamp service worked
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const timestampLines = lines.filter(line => timestampRegex.test(line));
       assert.strictEqual(timestampLines.length >= 1, true, 'Timestamp service should generate timestamp');
 
@@ -145,7 +145,7 @@ suite('End-to-End Workflow Tests', () => {
       assert.strictEqual(lines[2], 'Application started', 'Existing content should be preserved');
 
       // Verify new timestamp was added
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const timestampLines = lines.filter(line => timestampRegex.test(line));
       assert.strictEqual(timestampLines.length >= 2, true, 'Should have original and new timestamp');
 
@@ -172,7 +172,7 @@ suite('End-to-End Workflow Tests', () => {
       assert.strictEqual(lines[4], 'Existing entry', 'Existing content should be preserved');
 
       // Verify new markdown timestamp was added
-      const markdownTimestampRegex = /^## \d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const markdownTimestampRegex = /^## \d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const markdownTimestampLines = lines.filter(line => markdownTimestampRegex.test(line));
       assert.strictEqual(markdownTimestampLines.length >= 2, true, 'Should have original and new markdown timestamp');
 
@@ -196,7 +196,7 @@ suite('End-to-End Workflow Tests', () => {
       // Verify workflow handles empty files
       assert.strictEqual(lines[0], '.LOG', 'Should detect .LOG in empty file');
 
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const hasTimestamp = lines.some(line => timestampRegex.test(line));
       assert.strictEqual(hasTimestamp, true, 'Should add timestamp to empty .LOG file');
 
@@ -286,7 +286,7 @@ suite('End-to-End Workflow Tests', () => {
       assert.strictEqual(lines[1], 'Initial content', 'Original content should be preserved');
 
       // Should have multiple timestamps from multiple opens
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const timestampLines = lines.filter(line => timestampRegex.test(line));
       assert.strictEqual(timestampLines.length >= 2, true, 'Should have multiple timestamps from multiple opens');
 
@@ -324,7 +324,7 @@ suite('End-to-End Workflow Tests', () => {
         assert.strictEqual(lines[0], '.LOG', `File ${i} should have .LOG detected`);
         assert.strictEqual(lines[1], `Concurrent test ${i}`, `File ${i} should preserve original content`);
 
-        const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+        const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
         const hasTimestamp = lines.some(line => timestampRegex.test(line));
         assert.strictEqual(hasTimestamp, true, `File ${i} should have timestamp added`);
       }
@@ -349,7 +349,7 @@ suite('End-to-End Workflow Tests', () => {
 
       // Verify timestamp was added
       let content = document.getText();
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       let hasTimestamp = content.split('\n').some(line => timestampRegex.test(line));
       assert.strictEqual(hasTimestamp, true, 'Timestamp should be added after opening');
 
@@ -388,7 +388,7 @@ suite('End-to-End Workflow Tests', () => {
       const content1 = doc1.getText();
       const content2 = doc2.getText();
 
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const hasTimestamp1 = content1.split('\n').some(line => timestampRegex.test(line));
       const hasTimestamp2 = content2.split('\n').some(line => timestampRegex.test(line));
 
@@ -419,7 +419,7 @@ suite('End-to-End Workflow Tests', () => {
       assert.strictEqual(lines[0], '.LOG', 'Should detect .LOG in workspace context');
       assert.strictEqual(lines[1], 'Workspace test content', 'Should preserve content in workspace context');
 
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const hasTimestamp = lines.some(line => timestampRegex.test(line));
       assert.strictEqual(hasTimestamp, true, 'Should add timestamp in workspace context');
 

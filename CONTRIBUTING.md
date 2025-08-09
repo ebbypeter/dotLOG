@@ -130,7 +130,7 @@ The dotLOG extension follows a modular architecture with clear separation of con
 
 4. **Timestamp Service** (`timestampService.ts`)
    - Generates formatted timestamps
-   - Provides consistent "YYYY-MM-DD HH:MM" format
+   - Provides consistent "YYYY-MM-DD HH:MM AM/PM" format
 
 5. **File Type Handlers** (`handlers/`)
    - Handle file-specific formatting

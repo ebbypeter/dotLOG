@@ -105,10 +105,10 @@ suite('Integration Tests', () => {
       assert.strictEqual(lines[0], '.LOG', 'First line should remain .LOG');
       assert.strictEqual(lines.length >= 3, true, 'Should have at least 3 lines (including empty line)');
 
-      // Check timestamp format (YYYY-MM-DD HH:MM)
+      // Check timestamp format (YYYY-MM-DD HH:MM AM/PM)
       const timestampLine = lines[1];
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
-      assert.match(timestampLine, timestampRegex, 'Timestamp should match YYYY-MM-DD HH:MM format');
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
+      assert.match(timestampLine, timestampRegex, 'Timestamp should match YYYY-MM-DD HH:MM AM/PM format');
 
       // Close the document
       await vscode.commands.executeCommand('workbench.action.closeActiveEditor');
@@ -137,8 +137,8 @@ suite('Integration Tests', () => {
 
       // Check timestamp format
       const timestampLine = lines[1];
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
-      assert.match(timestampLine, timestampRegex, 'Timestamp should match YYYY-MM-DD HH:MM format');
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
+      assert.match(timestampLine, timestampRegex, 'Timestamp should match YYYY-MM-DD HH:MM AM/PM format');
 
       // Close the document
       await vscode.commands.executeCommand('workbench.action.closeActiveEditor');
@@ -165,9 +165,9 @@ suite('Integration Tests', () => {
       assert.strictEqual(lines[0], '.LOG', 'First line should remain .LOG');
       assert.strictEqual(lines.length >= 3, true, 'Should have at least 3 lines');
 
-      // Check markdown heading format (## YYYY-MM-DD HH:MM)
+      // Check markdown heading format (## YYYY-MM-DD HH:MM AM/PM)
       const timestampLine = lines[1];
-      const markdownTimestampRegex = /^## \d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const markdownTimestampRegex = /^## \d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       assert.match(timestampLine, markdownTimestampRegex, 'Timestamp should be formatted as markdown heading');
 
       // Close the document
@@ -271,7 +271,7 @@ suite('Integration Tests', () => {
       assert.strictEqual(lines[2], 'Existing log entry 2', 'Existing content should be preserved');
 
       // Check that timestamp was added at the end
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const lastNonEmptyLine = lines.filter(line => line.trim() !== '').pop();
       assert.match(lastNonEmptyLine || '', timestampRegex, 'Timestamp should be added at the end');
 
@@ -303,7 +303,7 @@ suite('Integration Tests', () => {
       assert.strictEqual(lines[0], '.LOG', 'First line should be .LOG');
 
       // Count timestamp lines
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const timestampLines = lines.filter(line => timestampRegex.test(line));
       assert.strictEqual(timestampLines.length >= 2, true, 'Should have multiple timestamps');
 
@@ -371,7 +371,7 @@ suite('Integration Tests', () => {
       assert.strictEqual(lines[0], '.LOG', 'First line should be .LOG');
 
       // Find the timestamp line (should be at the end)
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const timestampLineIndex = lines.findIndex(line => timestampRegex.test(line));
       assert.notStrictEqual(timestampLineIndex, -1, 'Timestamp should be found');
 
@@ -404,7 +404,7 @@ suite('Integration Tests', () => {
       // Verify timestamp was added (confirms processing completed)
       const content = document.getText();
       const lines = content.split('\n');
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const hasTimestamp = lines.some(line => timestampRegex.test(line));
 
       assert.strictEqual(hasTimestamp, true, 'Timestamp should be added');
@@ -451,7 +451,7 @@ suite('Integration Tests', () => {
       for (const document of documents) {
         const content = document.getText();
         const lines = content.split('\n');
-        const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+        const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
         const hasTimestamp = lines.some(line => timestampRegex.test(line));
 
         assert.strictEqual(hasTimestamp, true, `File ${document.fileName} should have timestamp`);
@@ -490,7 +490,7 @@ suite('Integration Tests', () => {
       // Verify timestamp was added
       const content = document.getText();
       const lines = content.split('\n');
-      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/;
+      const timestampRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2} (AM|PM)$/;
       const hasTimestamp = lines.some(line => timestampRegex.test(line));
 
       assert.strictEqual(hasTimestamp, true, 'Timestamp should be added to large file');
