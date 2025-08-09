@@ -565,3 +565,41 @@ node_modules/
 build/
 dist/
 next-env.d.ts
+
+# Experimental attempt to not pollute the repo with LLM specific files
+# LLM / AI Assistant Instructions and Config
+# GitHub Copilot custom instructions
+.github/instructions/
+
+# Claude / AI project-specific instructions
+CLAUDE.md
+AI_INSTRUCTIONS.md
+README.ai.md
+
+# Windsurf / Cursor rules
+.windsurfrules
+.windsurf/
+.cursor/
+
+# Gemini instructions
+GEMINI.md
+
+# Aider config/rules
+rules.md
+.aider.conf.yml
+~/.global_conventions.md
+
+# Continue IDE assistant config/prompts
+.continue/
+
+# General LLM prompt directories
+llm/
+llm_instructions/
+prompts/
+llm-context.md
+
+# Kiro
+kiro
+
+# Misc AI assistant ignore patterns
+.aiignore
